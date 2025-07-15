@@ -18,7 +18,7 @@ const [pharmacies, setPharmacies] = useState([]);
 
 useEffect(() => {
 axios
-.get("http://localhost:5000/api/medicines/all")
+.get("https://mediconnect-app.onrender.com/api/medicines/all")
 .then((res) => {
 setPharmacies(res.data);
 })

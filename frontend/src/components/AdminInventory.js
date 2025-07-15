@@ -30,7 +30,7 @@ function AdminInventory() {
   useEffect(() => {
     fetchMedicines();
 
-    axios.get("http://localhost:5000/api/medicines/pharmacies")
+    axios.get("https://mediconnect-app.onrender.com/api/medicines/pharmacies")
       .then(res => setPharmacies(res.data))
       .catch(err => console.error("Error fetching pharmacies:", err));
 
@@ -49,7 +49,7 @@ function AdminInventory() {
 
   const fetchMedicines = () => {
     axios
-      .get("http://localhost:5000/api/medicines/all")
+      .get("https://mediconnect-app.onrender.com/api/medicines/all")
       .then((res) => setMedicines(res.data))
       .catch((err) => console.error(err));
   };
@@ -61,7 +61,7 @@ function AdminInventory() {
     }
 
     axios
-      .post("http://localhost:5000/api/medicines/add", newMedicine)
+      .post("https://mediconnect-app.onrender.com/api/medicines/add", newMedicine)
       .then(() => {
         fetchMedicines();
         setNewMedicine({
@@ -77,7 +77,7 @@ function AdminInventory() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/api/medicines/delete/${id}`)
+      .delete(`https://mediconnect-app.onrender.com/api/medicines/delete/${id}`)
       .then(() => fetchMedicines())
       .catch((err) => console.error(err));
   };
@@ -94,7 +94,7 @@ function AdminInventory() {
 
   const handleUpdate = (id) => {
     axios
-      .put(`http://localhost:5000/api/medicines/update/${id}`, editedMedicine)
+      .put(`https://mediconnect-app.onrender.com/api/medicines/update/${id}`, editedMedicine)
       .then(() => {
         fetchMedicines();
         handleEditCancel();
@@ -104,7 +104,7 @@ function AdminInventory() {
 
   const handleAddNewPharmacy = () => {
     axios
-      .post("http://localhost:5000/api/medicines/add", customEntry)
+      .post("https://mediconnect-app.onrender.com/api/medicines/add", customEntry)
       .then(() => {
         fetchMedicines();
         setCustomEntry({

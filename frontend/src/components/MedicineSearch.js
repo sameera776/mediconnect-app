@@ -15,7 +15,7 @@ function MedicineSearch() {
 
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/medicines/search?name=${name}`,
+        `https://mediconnect-app.onrender.com/api/medicines/search?name=${name}`,
         {
           headers: {
             "x-auth-token": token,

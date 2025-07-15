@@ -8,7 +8,7 @@ const [results, setResults] = useState([]);
 const handleSearch = async () => {
 try {
 const token = localStorage.getItem("token");
-const res = await axios.get("http://localhost:5000/api/medicines/search", {
+const res = await axios.get("https://mediconnect-app.onrender.com/api/medicines/search", {
 params: { name: query },
 headers: { "x-auth-token": token },
 });

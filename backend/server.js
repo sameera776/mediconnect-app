@@ -26,4 +26,7 @@ const pharmacyRoutes = require("./routes/pharmacies");
 app.use("/api/pharmacies", pharmacyRoutes);
 
 // Server Start
-app.listen(5000, () => console.log("✅ Server running on http://localhost:5000"));
+app.listen(process.env.PORT || 5000, () =>
+  console.log(`✅ Server running on http://localhost:${process.env.PORT || 5000}`)
+);
+

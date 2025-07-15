@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mediconnect-app/static/css/main.17ba192e.css",
+    "main.js": "/mediconnect-app/static/js/main.9f94df24.js",
+    "index.html": "/mediconnect-app/index.html",
+    "main.17ba192e.css.map": "/mediconnect-app/static/css/main.17ba192e.css.map",
+    "main.9f94df24.js.map": "/mediconnect-app/static/js/main.9f94df24.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17ba192e.css",
+    "static/js/main.9f94df24.js"
+  ]
+}

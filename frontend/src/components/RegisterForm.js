@@ -9,7 +9,7 @@ function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("hhttps://mediconnect-app.onrender.com/api/auth/register", {
+      const res = await axios.post("https://mediconnect-app.onrender.com/api/auth/register", {
         email,
         password,
       });

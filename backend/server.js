@@ -8,7 +8,9 @@ dotenv.config();
 console.log("JWT_SECRET =", process.env.JWT_SECRET);
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 
 // DB connection

@@ -1,11 +1,20 @@
 const db = require("../config/db");
 
-const createUser = (email, password, callback) => {
-  db.query("INSERT INTO users (email, password) VALUES (?, ?)", [email, password], callback);
+exports.createUser = (email, hashedPassword, callback) => {
+  const query = "INSERT INTO users (email, password) VALUES (?, ?)";
+  db.query(query, [email, hashedPassword], callback);
 };
 
-const findUserByEmail = (email, callback) => {
-  db.query("SELECT * FROM users WHERE email = ?", [email], callback);
-};
+exports.findUserByEmail = (email, callback) => {
+  const query = "SELECT * FROM users WHERE email = ?";
+  db.query(query, [email], (err, results) => {
+    if (err) {
+      console.error("❌ Error in findUserByEmail:", err);
+      return callback(err, []);
+    }
 
-module.exports = { createUser, findUserByEmail };
+    // Log result to ensure structure is right
+    console.log("✅ Query result:", results);
+    callback(null, results);
+  });
+};

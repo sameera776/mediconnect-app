@@ -1,16 +1,14 @@
-
 const mysql = require("mysql2");
 
 console.log("🚀 Attempting to connect to MySQL...");
 
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT || 3306,
+  host: process.env.DB_HOST,         // ✅ from environment variables (Render)
+  user: process.env.DB_USER,         // ✅ secure, not hardcoded
+  password: process.env.DB_PASSWORD, // ✅ secure
+  database: process.env.DB_NAME,     // ✅ selected DB
+  port: process.env.DB_PORT || 3306, // ✅ fallback to default MySQL port
 });
-
 
 connection.connect(err => {
   if (err) {
@@ -21,4 +19,3 @@ connection.connect(err => {
 });
 
 module.exports = connection;
-

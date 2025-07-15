@@ -16,30 +16,31 @@ exports.register = (req, res) => {
 
 exports.login = (req, res) => {
   const { email, password } = req.body;
-  console.log("🔐 Login attempt:", email);
+  console.log("🚀 Login attempt for:", email);
 
   findUserByEmail(email, (err, results) => {
     if (err) {
-      console.error("❌ DB error during login:", err);
+      console.error("❌ DB error in findUserByEmail:", err);
       return res.status(500).json({ msg: "Internal server error" });
     }
 
     if (!results || results.length === 0) {
-      console.warn("⚠️ No user found with email:", email);
-      return res.status(401).json({ msg: "Invalid credentials" });
+      console.warn("❌ No user found with email:", email);
+      return res.status(400).json({ msg: "Invalid credentials" });
     }
 
     const user = results[0];
+    console.log("✅ User found:", user.email);
 
     bcrypt.compare(password, user.password, (err, isMatch) => {
       if (err) {
         console.error("❌ Bcrypt compare error:", err);
-        return res.status(500).json({ msg: "Auth failed" });
+        return res.status(500).json({ msg: "Internal server error" });
       }
 
       if (!isMatch) {
-        console.warn("⚠️ Password mismatch");
-        return res.status(401).json({ msg: "Invalid credentials" });
+        console.warn("❌ Password mismatch");
+        return res.status(400).json({ msg: "Invalid credentials" });
       }
 
       const token = jwt.sign(
@@ -48,8 +49,8 @@ exports.login = (req, res) => {
         { expiresIn: "1h" }
       );
 
-      console.log("✅ Login successful for:", user.email);
-      res.json({ token, role: user.role });
+      console.log("✅ Login successful for:", email);
+      res.json({ token });
     });
   });
 };

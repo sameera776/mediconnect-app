@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/mediconnect-app/static/css/main.17ba192e.css",
-    "main.js": "/mediconnect-app/static/js/main.e9b56fd5.js",
+    "main.js": "/mediconnect-app/static/js/main.9be6f2da.js",
     "index.html": "/mediconnect-app/index.html",
     "main.17ba192e.css.map": "/mediconnect-app/static/css/main.17ba192e.css.map",
-    "main.e9b56fd5.js.map": "/mediconnect-app/static/js/main.e9b56fd5.js.map"
+    "main.9be6f2da.js.map": "/mediconnect-app/static/js/main.9be6f2da.js.map"
   },
   "entrypoints": [
     "static/css/main.17ba192e.css",
-    "static/js/main.e9b56fd5.js"
+    "static/js/main.9be6f2da.js"
   ]
 }
